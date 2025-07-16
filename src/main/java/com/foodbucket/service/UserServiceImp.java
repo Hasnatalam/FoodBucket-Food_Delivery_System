@@ -19,10 +19,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public UserResponse registerUser(UserRequest userRequest) {
 		
-		 // Validate password match
-        if (!userRequest.getPassword().equals(userRequest.getConfirmPassword())) {
-            throw new ConfirmPasswordNotMatchException("Confirm password doesn't match. Please check your input.");
-        }
+
         // Change UserRequest to user and Encoding password
 		User user = User.builder()
 				.firstName(userRequest.getFirstName())
