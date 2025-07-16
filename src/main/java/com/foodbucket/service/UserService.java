@@ -1,7 +1,7 @@
 package com.foodbucket.service;
 
-import com.foodbucket.dto.UserRequest;
-import com.foodbucket.dto.UserResponse;
+import com.foodbucket.model.UserRequest;
+import com.foodbucket.model.UserResponse;
 
 public interface UserService {
 	

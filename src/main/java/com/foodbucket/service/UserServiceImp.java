@@ -2,26 +2,47 @@ package com.foodbucket.service;
 
 import org.springframework.stereotype.Service;
 
-import com.foodbucket.dto.UserRequest;
-import com.foodbucket.dto.UserResponse;
-import com.foodbucket.model.User;
+import com.foodbucket.entity.User;
+import com.foodbucket.exception.ConfirmPasswordNotMatchException;
+import com.foodbucket.model.UserRequest;
+import com.foodbucket.model.UserResponse;
 import com.foodbucket.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImp implements UserService{
-	
+public class UserServiceImp implements UserService {
+
 	private final UserRepository userRepository;
 
 	@Override
 	public UserResponse registerUser(UserRequest userRequest) {
 		
-		User user = userRepository.save(userRequest);
+		 // Validate password match
+        if (!userRequest.getPassword().equals(userRequest.getConfirmPassword())) {
+            throw new ConfirmPasswordNotMatchException("Confirm password doesn't match. Please check your input.");
+        }
+        // Change UserRequest to user and Encoding password
+		User user = User.builder()
+				.firstName(userRequest.getFirstName())
+				.lastName(userRequest.getLastName())
+				.email(userRequest.getEmail())
+				.phone(userRequest.getPhone())
+				.password(userRequest.getPassword())
+				.build();
 		
-		return null;
+		User savedUser = userRepository.save(user);
+		
+		
+		
+		return UserResponse.builder()
+				.firstName(savedUser.getFirstName())
+				.lastName(savedUser.getLastName())
+				.email(savedUser.getEmail())
+				.phone(savedUser.getPhone())
+				.build();
+				
 	}
-	
 
 }

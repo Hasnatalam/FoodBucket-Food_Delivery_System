@@ -1,4 +1,4 @@
-package com.foodbucket.dto;
+package com.foodbucket.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

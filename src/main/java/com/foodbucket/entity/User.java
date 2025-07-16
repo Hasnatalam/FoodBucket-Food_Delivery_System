@@ -1,4 +1,4 @@
-package com.foodbucket.model;
+package com.foodbucket.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
