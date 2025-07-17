@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.3</version>
+		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hasnat</groupId>
-	<artifactId>SB-JPA-proj-Finder_Query-04</artifactId>
+	<groupId>com.foodbucket</groupId>
+	<artifactId>FoodBucket-Food_Delivery_System</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SB-JPA-proj-Finder_Query-04</name>
-	<description>Demo project for Spring Boot</description>
+	<name>FoodBucket-Food_Delivery_System</name>
+	<description>Spring Boot project for online food ordering with authentication, cart, and admin dashboard features.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -54,13 +54,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-  			<groupId>org.springdoc</groupId>
-  			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-  			<version>2.5.0</version>
-		</dependency>
-		
-		<!-- Validation dependency -->
+		<!-- This is for Validation -->
 		<dependency>
     		<groupId>jakarta.validation</groupId>
     		<artifactId>jakarta.validation-api</artifactId>
@@ -69,10 +63,13 @@
     		<groupId>org.hibernate.validator</groupId>
     		<artifactId>hibernate-validator</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+    		<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    		<version>2.5.0</version> <!-- Check for latest version -->
 		</dependency>
+	
 	</dependencies>
 
 	<build>
