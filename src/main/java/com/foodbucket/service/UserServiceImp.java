@@ -3,7 +3,7 @@ package com.foodbucket.service;
 import org.springframework.stereotype.Service;
 
 import com.foodbucket.entity.User;
-import com.foodbucket.exception.ConfirmPasswordNotMatchException;
+import com.foodbucket.exception.UserAlreadyExistsException;
 import com.foodbucket.model.UserRequest;
 import com.foodbucket.model.UserResponse;
 import com.foodbucket.repository.UserRepository;
@@ -19,7 +19,11 @@ public class UserServiceImp implements UserService {
 	@Override
 	public UserResponse registerUser(UserRequest userRequest) {
 		
+		if(!userRepository.existsByEmail(userRequest.getEmail())) {
+            throw new UserAlreadyExistsException("User with email " + userRequest.getEmail() + " already exists");
 
+		}
+		
         // Change UserRequest to user and Encoding password
 		User user = User.builder()
 				.firstName(userRequest.getFirstName())
